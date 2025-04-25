@@ -1,0 +1,7 @@
+<p>portfolio works!</p>
+
+<ul>
+    @for (project of projects; track $index) {
+        #{{ project.id }} - {{ project.title }}
+    }
+</ul>
