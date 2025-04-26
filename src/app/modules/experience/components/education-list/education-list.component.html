@@ -1,0 +1,13 @@
+<p-timeline [value]="educations">
+    <ng-template #opposite let-education>
+        <small class="text-500 dark:text-400">
+            {{ education.start_date | date:'MM/yyyy' }} - {{ education.end_date | date:'MM/yyyy' }}
+        </small>
+    </ng-template>
+    <ng-template #content let-education>
+        <div class="flex flex-column gap-1">
+            <span class="font-bold">{{ education.degree }}</span>
+            <span class="text-primary">{{ education.institution_name }} - {{ education.locality }}</span>
+        </div>
+    </ng-template>
+</p-timeline>
