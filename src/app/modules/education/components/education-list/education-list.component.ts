@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { EducationService } from '../../../education/services/education.service';
+import { EducationService } from '../../services/education.service';
 import { Education } from '../../../../models/education.model';
 import { TimelineModule } from 'primeng/timeline';
 import { DatePipe } from '@angular/common';
