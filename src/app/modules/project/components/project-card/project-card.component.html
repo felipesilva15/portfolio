@@ -1,0 +1,21 @@
+<p-card class="w-full h-full">
+    <ng-template #header>
+        <img alt="Project thumbnail" class="w-full project-image" [src]="project.thumbnail_url" />
+    </ng-template>
+    <ng-template #title>
+        {{ project.title }}
+    </ng-template>
+    <div class="flex flex-row flex-wrap flex- gap-1">
+        @for (tag of project.tags; track $index) {
+            <p-tag [value]="tag.name" />
+        }
+    </div>
+    <ng-template #footer>
+        <div class="flex gap-3 mt-2">
+            <a href="https://foxtrot-toystore.felipesilva15.com.br/" target="_blank" rel="noopener noreferrer" class="w-full">
+                <p-button label="Visualizar" severity="secondary" [outlined]="true" styleClass="w-full" />
+            </a>
+            <p-button label="Detalhes" class="w-full" styleClass="w-full" />
+        </div>
+    </ng-template>
+</p-card>
