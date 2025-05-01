@@ -1,0 +1,10 @@
+.title::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 5px;
+    background: var(--p-primary-color);
+    border-radius: 3px;
+}
