@@ -1,0 +1,21 @@
+.avatar-box {
+    border-radius: 30px;
+    background: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
+    width: 150px;
+    height: 150px;
+}
+
+.card {
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--p-neutral-900);
+    border: 1px solid hsl(0, 0%, 22%);
+}
+
+.icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    background: var(--p-neutral-850);
+}

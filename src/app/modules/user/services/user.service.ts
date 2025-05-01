@@ -8,14 +8,15 @@ import { Observable, of } from 'rxjs';
 export class UserService {
   constructor() { }
 
-  getById(): Observable<User> {
+  getById(id: number): Observable<User> {
     const creationDate = new Date();
 
     const fakeUser: User = {
       id: 1,
       name: 'Felipe Silva',
       email: 'felipe.allware@gmail.com',
-      job_title: 'Fullstack Developer',
+      job_title: 'Fullstack developer',
+      avatar_url: '',
       phone_number: '11983432682',
       birth_date: new Date('2003-08-15T03:00:00.000000Z'),
       locality: 'São Paulo, SP',
@@ -34,6 +35,15 @@ export class UserService {
           label: 'GitHub',
           url: 'https://github.com/felipesilva15',
           icon_name: 'pi-github',
+          user_id: 1,
+          created_at: creationDate,
+          updated_at: creationDate
+        },
+        {
+          id: 3,
+          label: 'Instagram',
+          url: 'https://www.instagram.com/felipe_of_silva/',
+          icon_name: 'pi-instagram',
           user_id: 1,
           created_at: creationDate,
           updated_at: creationDate

@@ -5,6 +5,7 @@ export interface User {
     name: string;
     email: string;
     job_title: string;
+    avatar_url: string;
     phone_number: string;
     birth_date: Date;
     locality: string;
