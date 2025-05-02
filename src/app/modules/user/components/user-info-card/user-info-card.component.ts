@@ -6,11 +6,12 @@ import { DividerModule } from 'primeng/divider';
 import { TagModule } from 'primeng/tag';
 import { PipesModule } from '../../../../shared/pipes/pipes.module';
 import { DatePipe } from '@angular/common';
+import { SharedModule } from '../../../../shared/shared.module';
 
 @Component({
   selector: 'app-user-info-card',
   standalone: true,
-  imports: [TagModule, ButtonModule, DividerModule, PipesModule, DatePipe],
+  imports: [TagModule, ButtonModule, DividerModule, PipesModule, DatePipe, SharedModule],
   templateUrl: './user-info-card.component.html',
   styleUrl: './user-info-card.component.scss'
 })

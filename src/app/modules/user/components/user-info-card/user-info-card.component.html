@@ -1,62 +1,51 @@
-<div class="grid">
-    <div class="card col-3">
-        <div class="flex flex-column align-items-center w-full">
-            <div class="avatar-box ">
-                
+<div class="card">
+    <div class="flex flex-column align-items-center w-full">
+        <div class="avatar-box ">
+            
+        </div>
+        <div class="flex flex-column align-items-center">
+            <h1>{{ user.name }}</h1>
+            <p-tag [value]="user.job_title" severity="secondary" [classList]="'m-auto'" />
+        </div>
+    </div>
+    <div>
+        <p-divider class="my-5" />
+        <div class="flex flex-column gap-4">
+            <div class="flex flex-row gap-3">
+                <app-icon-box icon-class="pi-envelope" />
+                <div class="flex flex-column">
+                    <p class="text-xs text-400 font-bold m-0 mb-1">EMAIL</p>
+                    <a class="no-underline hover:underline text text-color text-overflow-ellipsis" href="mailto:{{ user.email }}" target="_blank" rel="noopener noreferrer">{{ user.email }}</a>
+                </div>
             </div>
-            <div class="flex flex-column align-items-center">
-                <h1>{{ user.name }}</h1>
-                <p-tag [value]="user.job_title" severity="secondary" [classList]="'m-auto'" />
+            <div class="flex flex-row gap-3">
+                <app-icon-box icon-class="pi-phone" />
+                <div class="flex flex-column">
+                    <p class="text-xs text-400 font-bold m-0 mb-1">TELEFONE</p>
+                    <a class="no-underline hover:underline text text-color" href="https://api.whatsapp.com/send?phone=55{{ user.phone_number }}" target="_blank" rel="noopener noreferrer">{{ user.phone_number | phone }}</a>
+                </div>
+            </div>
+            <div class="flex flex-row gap-3">
+                <app-icon-box icon-class="pi-calendar" />
+                <div class="flex flex-column">
+                    <p class="text-xs text-400 font-bold m-0 mb-1">DATA DE ANIVERSÁRIO</p>
+                    <span>{{ user.birth_date | date:'longDate' }}</span>
+                </div>
+            </div>
+            <div class="flex flex-row gap-3">
+                <app-icon-box icon-class="pi-map-marker" />
+                <div class="flex flex-column">
+                    <p class="text-xs text-400 font-bold m-0 mb-1">LOCALIDADE</p>
+                    <span>{{ user.locality }}</span>
+                </div>
             </div>
         </div>
-        <div>
-            <p-divider class="my-5" />
-            <div class="flex flex-column gap-4">
-                <div class="flex flex-row gap-3">
-                    <div class="icon-box flex justify-content-center align-items-center">
-                        <i class="text-primary pi pi-envelope"></i>
-                    </div>
-                    <div class="flex flex-column">
-                        <p class="text-xs text-400 font-bold m-0 mb-1">EMAIL</p>
-                        <a class="no-underline hover:underline text text-color text-overflow-ellipsis" href="mailto:{{ user.email }}" target="_blank" rel="noopener noreferrer">{{ user.email }}</a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-3">
-                    <div class="icon-box flex justify-content-center align-items-center">
-                        <i class="text-primary pi pi-phone"></i>
-                    </div>
-                    <div class="flex flex-column">
-                        <p class="text-xs text-400 font-bold m-0 mb-1">TELEFONE</p>
-                        <a class="no-underline hover:underline text text-color" href="https://api.whatsapp.com/send?phone=55{{ user.phone_number }}" target="_blank" rel="noopener noreferrer">{{ user.phone_number | phone }}</a>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-3">
-                    <div class="icon-box flex justify-content-center align-items-center">
-                        <i class="text-primary pi pi-calendar"></i>
-                    </div>
-                    <div class="flex flex-column">
-                        <p class="text-xs text-400 font-bold m-0 mb-1">DATA DE ANIVERSÁRIO</p>
-                        <span>{{ user.birth_date | date:'longDate' }}</span>
-                    </div>
-                </div>
-                <div class="flex flex-row gap-3">
-                    <div class="icon-box flex justify-content-center align-items-center">
-                        <i class="text-primary pi pi-map-marker"></i>
-                    </div>
-                    <div class="flex flex-column">
-                        <p class="text-xs text-400 font-bold m-0 mb-1">LOCALIDADE</p>
-                        <span>{{ user.locality }}</span>
-                    </div>
-                </div>
-            </div>
-            <div class="flex flex-row gap-1 justify-content-center w-full mt-3">
-                @for (link of user.links; track $index) {
-                    <a [href]="link.url" target="_blank" rel="noopener noreferrer">
-                        <p-button icon="pi {{ link.icon_name }}" [rounded]="true" [text]="true" severity="secondary" />
-                    </a>
-                }
-            </div>
+        <div class="flex flex-row gap-1 justify-content-center w-full mt-3">
+            @for (link of user.links; track $index) {
+                <a [href]="link.url" target="_blank" rel="noopener noreferrer">
+                    <p-button icon="pi {{ link.icon_name }}" [rounded]="true" [text]="true" severity="secondary" />
+                </a>
+            }
         </div>
-        
     </div>
 </div>

@@ -11,3 +11,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+.card {
+    padding: 30px;
+    border-radius: 20px;
+    background: var(--p-neutral-900);
+    border: 1px solid hsl(0, 0%, 22%);
+}
