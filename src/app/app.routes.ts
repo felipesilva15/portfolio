@@ -1,8 +1,29 @@
 import { Routes } from '@angular/router';
-import { EducationComponent } from './modules/education/components/education/education.component';
-import { PortfolioComponent } from './pages/portfolio/portfolio.component';
+import { LayoutComponent } from './layout/components/layout/layout.component';
 
 export const routes: Routes = [
-    { path: 'resume', component: EducationComponent },
-    { path: 'portfolio', component: PortfolioComponent }
+    {
+        path: '',
+        component: LayoutComponent,
+        children: [
+            { 
+                path: '', 
+                loadComponent: () => import('./pages/about-me/about-me.component').then(
+                    c => c.AboutMeComponent
+                )
+            },
+            { 
+                path: 'resume', 
+                loadComponent: () => import('./pages/resume/resume.component').then(
+                    c => c.ResumeComponent
+                )
+            },
+            { 
+                path: 'portfolio', 
+                loadComponent: () => import('./pages/portfolio/portfolio.component').then(
+                    c => c.PortfolioComponent
+                )
+            }
+        ]
+    }
 ];
