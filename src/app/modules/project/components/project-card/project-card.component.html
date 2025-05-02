@@ -12,7 +12,7 @@
     </div>
     <ng-template #footer>
         <div class="flex gap-3 mt-2">
-            <a href="https://foxtrot-toystore.felipesilva15.com.br/" target="_blank" rel="noopener noreferrer" class="w-full">
+            <a [href]="project.url" target="_blank" rel="noopener noreferrer" class="w-full">
                 <p-button label="Visualizar" severity="secondary" [outlined]="true" styleClass="w-full" />
             </a>
             <p-button label="Detalhes" class="w-full" styleClass="w-full" />

@@ -1,7 +1,7 @@
 
 <div class="grid">
     @for (project of projects; track $index) {
-        <div class="xl:col-3 lg:col-4 sm:col-6 col-12">
+        <div class="lg:col-4 sm:col-6 col-12">
             <app-project-card [project]="project"></app-project-card>
         </div>
     }

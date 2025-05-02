@@ -8,6 +8,7 @@ export interface Project {
     completion_date?: Date;
     thumbnail_url: string;
     status: ProjectStatus;
+    url: string;
     tags: Array<Tag>;
     created_at?: Date;
     updated_at?: Date;
