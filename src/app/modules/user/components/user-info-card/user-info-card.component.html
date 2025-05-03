@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card xl:sticky">
     <div class="flex flex-column align-items-center w-full">
         <div class="avatar-box ">
             
@@ -10,29 +10,29 @@
     </div>
     <div>
         <p-divider class="my-5" />
-        <div class="flex flex-column gap-4">
-            <div class="flex flex-row gap-3">
+        <div class="grid">
+            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
                 <app-icon-box icon-class="pi-envelope" />
                 <div class="flex flex-column">
-                    <p class="text-xs text-400 font-bold m-0 mb-1">EMAIL</p>
+                    <p class="text-xs text-400 font-bold m-0 mb-1">E-MAIL</p>
                     <a class="no-underline hover:underline text text-color text-overflow-ellipsis" href="mailto:{{ user.email }}" target="_blank" rel="noopener noreferrer">{{ user.email }}</a>
                 </div>
             </div>
-            <div class="flex flex-row gap-3">
-                <app-icon-box icon-class="pi-phone" />
+            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
+                <app-icon-box icon-class="pi-mobile" />
                 <div class="flex flex-column">
                     <p class="text-xs text-400 font-bold m-0 mb-1">TELEFONE</p>
                     <a class="no-underline hover:underline text text-color" href="https://api.whatsapp.com/send?phone=55{{ user.phone_number }}" target="_blank" rel="noopener noreferrer">{{ user.phone_number | phone }}</a>
                 </div>
             </div>
-            <div class="flex flex-row gap-3">
+            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
                 <app-icon-box icon-class="pi-calendar" />
                 <div class="flex flex-column">
-                    <p class="text-xs text-400 font-bold m-0 mb-1">DATA DE ANIVERSÁRIO</p>
+                    <p class="text-xs text-400 font-bold m-0 mb-1">DT. ANIVERSÁRIO</p>
                     <span>{{ user.birth_date | date:'longDate' }}</span>
                 </div>
             </div>
-            <div class="flex flex-row gap-3">
+            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
                 <app-icon-box icon-class="pi-map-marker" />
                 <div class="flex flex-column">
                     <p class="text-xs text-400 font-bold m-0 mb-1">LOCALIDADE</p>
@@ -40,6 +40,7 @@
                 </div>
             </div>
         </div>
+        <p-divider class="my-5" />
         <div class="flex flex-row gap-1 justify-content-center w-full mt-3">
             @for (link of user.links; track $index) {
                 <a [href]="link.url" target="_blank" rel="noopener noreferrer">

@@ -18,3 +18,8 @@ body {
     background: var(--p-neutral-900);
     border: 1px solid hsl(0, 0%, 22%);
 }
+
+*::selection {
+    color: var(--smoky-black);
+    background-color: var(--p-primary-color);
+}
