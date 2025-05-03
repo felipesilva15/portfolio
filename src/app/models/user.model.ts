@@ -9,6 +9,7 @@ export interface User {
     phone_number: string;
     birth_date: Date;
     locality: string;
+    about: string;
     links: Link[];
     created_at?: Date;
     updated_at?: Date;
