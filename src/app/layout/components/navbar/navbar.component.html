@@ -1,0 +1,11 @@
+<nav class="navbar lg:absolute lg:left-auto lg:right-0 lg:bottom-auto lg:w-max lg:px-5 lg:shadow-none fixed bottom-0 left-0 w-full z-5">
+    <ul class="list-none m-0 flex justify-content-center align-items-center px-2 gap-3">
+        @for (item of navbarItems; track $index) {
+            <li routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                <a [routerLink]="item.route" class="block no-underline text-500 hover:text-400 lg:py-3 px-2 py-4 font-semibold">
+                    {{ item.label }}
+                </a>
+            </li>
+        }
+    </ul>
+</nav>

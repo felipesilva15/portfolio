@@ -1,17 +1,21 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './components/layout/layout.component';
-import { RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { UserInfoCardComponent } from '../modules/user/components/user-info-card/user-info-card.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 
 
 @NgModule({
   declarations: [
-    LayoutComponent
+    LayoutComponent,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
+    RouterLink,
+    RouterLinkActive,
     RouterOutlet,
     UserInfoCardComponent
   ],

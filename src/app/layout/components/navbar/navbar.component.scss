@@ -1,0 +1,17 @@
+.navbar {
+    background: hsla(240, 1%, 17%, 0.75);;
+    backdrop-filter: blur(10px);
+    border: var(--card-border);
+    border-radius: 20px 20px 0 0;
+    box-shadow: var(--shadow-1);
+}
+
+li.active a {
+    color: var(--p-primary-color) !important;
+}
+
+@media screen and (min-width: 992px) {
+    .navbar {
+        border-radius: 0 20px;
+    }
+}
