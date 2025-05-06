@@ -1,20 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { DateUtilsService } from './../../../../shared/utils/date-utils.service';
+import { Component, Inject, LOCALE_ID, OnInit } from '@angular/core';
 import { EducationService } from '../../services/education.service';
 import { Education } from '../../../../models/education.model';
 import { TimelineModule } from 'primeng/timeline';
-import { DatePipe } from '@angular/common';
+import { DatePipe, formatDate } from '@angular/common';
+import { SharedModule } from '../../../../shared/shared.module';
+import { TimelineItem } from '../../../../models/timeline-item.data';
 
 @Component({
   selector: 'app-education-list',
   standalone: true,
-  imports: [DatePipe, TimelineModule],
+  imports: [TimelineModule, SharedModule],
   templateUrl: './education-list.component.html',
   styleUrl: './education-list.component.scss'
 })
 export class EducationListComponent implements OnInit {
   educations!: Education[];
+  timelineList!: TimelineItem[];
 
-  constructor(private educationService: EducationService) { }
+  constructor(private educationService: EducationService, private dateUtilsService: DateUtilsService) { }
 
   ngOnInit(): void {
     this.loadData();
@@ -24,7 +28,20 @@ export class EducationListComponent implements OnInit {
     this.educationService.getAll().subscribe({
       next: (response: Education[]) => {
         this.educations = response;
+        this.makeTimelineList();
       }
+    });
+  }
+
+  makeTimelineList(): void {
+    this.timelineList = [];
+
+    this.educations.map((education) => {
+      this.timelineList.push({
+        title: education.degree,
+        subtitle: this.dateUtilsService.formatDatePeriod(education.start_date, education.end_date),
+        description: `${education.institution_name} - ${education.locality}`
+      });
     });
   }
 }
