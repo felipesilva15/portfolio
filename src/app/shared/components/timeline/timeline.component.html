@@ -1,0 +1,15 @@
+<ul class="list list-none m-0 ml-3 flex gap-4 flex-column">
+    @for (item of items; track $index) {
+        <li class="item relative">
+            <span class="block font-bold line-height-2 mb-2">{{ item.title }}</span>
+            @if (item.subtitle) {
+                <span class="block text-primary">{{ item.subtitle }}</span>
+            }
+            @if (item.description) {
+                <p class="text-500 m-0 font-light line-height-3">
+                    {{ item.description }}
+                </p>
+            }
+        </li>
+    }
+</ul>
