@@ -1,0 +1,15 @@
+<div>
+    <div class="mb-3">
+        <span class="text-2xl font-bold">Habilidades</span>
+    </div>
+    <div class="flex flex-row gap-2">
+        @for (skill of skills; track $index) {
+            <div class="flex flex-column align-items-center gap-1">
+                <div class="image-box p-2 flex justify-content-center align-items-center">
+                    <img class="w-full" [src]="skill.icon_url" [alt]="skill.title">
+                </div>
+                <span class="text-color-secondary text-xs">{{ skill.title }}</span>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,11 @@
+.image-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-1);
+    background: var(--p-neutral-850);
+}
+
+.image-box img {
+    object-fit: contain;
+}

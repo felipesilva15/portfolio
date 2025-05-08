@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { EducationComponent } from '../../modules/education/components/education/education.component';
 import { ExperienceComponent } from "../../modules/experience/components/experience/experience.component";
+import { SkillComponent } from "../../modules/skill/components/skill/skill.component";
 
 @Component({
   selector: 'app-resume',
@@ -9,7 +10,8 @@ import { ExperienceComponent } from "../../modules/experience/components/experie
   imports: [
     SharedModule,
     EducationComponent,
-    ExperienceComponent
+    ExperienceComponent,
+    SkillComponent
 ],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.scss'
