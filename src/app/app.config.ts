@@ -8,6 +8,7 @@ import { routes } from './app.routes';
 import { providePrimeNG } from 'primeng/config';
 import { definePreset } from "@primeng/themes";
 import Aura from '@primeng/themes/aura';
+import { DialogService } from 'primeng/dynamicdialog';
 
 const MyPortfolio = definePreset(Aura, {
   semantic: {
@@ -63,6 +64,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideHttpClient(),
     provideAnimationsAsync(),
+    DialogService,
     providePrimeNG({ 
       ripple: true,
       inputStyle: 'outlined',
