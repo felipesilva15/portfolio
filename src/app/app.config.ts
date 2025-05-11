@@ -55,6 +55,17 @@ const MyPortfolio = definePreset(Aura, {
         }
       }
     }
+  },
+  components: {
+    card: {
+      colorScheme: {
+        dark: {
+          root: {
+            background: 'var(--p-neutral-850)'
+          }
+        }
+      }
+    }
   }
 });
 

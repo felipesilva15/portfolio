@@ -1,3 +1,7 @@
 .p-menu-overlay {
     position: relative;
 }
+
+.p-card, .p-card-body, .p-card-footer {
+    height: 100% !important;
+}

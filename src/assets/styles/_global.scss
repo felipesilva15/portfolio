@@ -23,3 +23,11 @@ body {
     color: var(--smoky-black);
     background-color: var(--p-primary-color);
 }
+
+.line-clamp-2 {
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+}

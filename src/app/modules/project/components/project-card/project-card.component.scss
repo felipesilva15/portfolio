@@ -1,9 +1,14 @@
 .project-image {
     object-fit: contain;
     background-color: var(--p-surface-0);
-    height: 250px;
+    height: 195px;
+    border-radius: var(--p-card-border-radius);
 }
 
 .p-card-body {
     height: 100% !important;
+}
+
+.project-type-box {
+    border-radius: 0 12px 0 12px;
 }
