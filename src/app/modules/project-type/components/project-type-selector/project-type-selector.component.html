@@ -1,0 +1,5 @@
+<div class="flex flex-row gap-2">
+    @for (projectType of projectTypes; track $index) {
+        <p-button [label]="projectType.name" [severity]="projectType.id == selectedProjectType?.id ? 'primary': 'secondary'" variant="text" (onClick)="onProjectTypeSelected(projectType)" />
+    }
+</div>
