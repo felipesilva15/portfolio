@@ -1,0 +1,10 @@
+.description p {
+    margin: 0 !important;
+    color: red;
+}
+
+.project-image {
+    object-fit: contain;
+    background-color: var(--p-surface-0);
+    border-radius: 12px 12px 0 0;
+}

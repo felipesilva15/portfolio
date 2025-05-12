@@ -5,3 +5,13 @@
 .p-card, .p-card-body, .p-card-footer {
     height: 100% !important;
 }
+
+.blank-dialog .p-dialog-header {
+    display: none !important;
+    height: 0 !important;
+    padding: 0 !important;
+} 
+
+.blank-dialog .p-dialog-content  {
+    padding: 0 !important;
+}

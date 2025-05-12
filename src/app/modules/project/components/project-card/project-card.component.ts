@@ -6,6 +6,8 @@ import { TagModule } from 'primeng/tag';
 import { ImageModule } from 'primeng/image';
 import { DynamicDialogService } from '../../../../shared/services/dynamic-dialog.service';
 import { DialogService } from 'primeng/dynamicdialog';
+import { ProjectDetailsComponent } from '../project-details/project-details.component';
+import { DialogSize } from '../../../../shared/enums/dialog-size';
 
 @Component({
   selector: 'app-project-card',
@@ -26,6 +28,11 @@ export class ProjectCardComponent {
   }
 
   openDetailsDialog(project: Project): void {
-    this.dynamicDialogService.message(`Detalhes do projeto ${project.title}.`);
+    this.dynamicDialogService.open(ProjectDetailsComponent, {
+          data: project, 
+          size: DialogSize.Medium, 
+          closeable: false,
+          styleClass: 'blank-dialog'
+        });
   }
 }
