@@ -1,6 +1,8 @@
-
+<div class="mb-3">
+    <app-project-type-selector (selectProjectTypeEvent)="filterProjectType($event)" />
+</div>
 <div class="grid">
-    @for (project of projects; track $index) {
+    @for (project of filteredProjects; track $index) {
         <div class="md:col-6 col-12">
             <app-project-card [project]="project"></app-project-card>
         </div>
