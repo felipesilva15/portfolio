@@ -16,7 +16,7 @@ export class UserService {
       name: 'Felipe Silva',
       email: 'felipe.allware@gmail.com',
       job_title: 'Fullstack developer',
-      avatar_url: '',
+      avatar_url: 'https://i.imgur.com/5eeXShJ.png',
       phone_number: '11983432682',
       birth_date: new Date('2003-08-15T03:00:00.000000Z'),
       locality: 'São Paulo, SP',
