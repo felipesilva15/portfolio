@@ -1,5 +1,8 @@
-<div class="flex flex-row gap-2">
+<div class="sm:flex hidden flex-row gap-2">
     @for (projectType of projectTypes; track $index) {
-        <p-button [label]="projectType.name" [severity]="projectType.id == selectedProjectType?.id ? 'primary': 'secondary'" variant="text" (onClick)="onProjectTypeSelected(projectType)" />
+        <p-button [label]="projectType.name" [severity]="projectType.id == selectedProjectType()?.id ? 'primary': 'secondary'" variant="text" (onClick)="selectedProjectType.set(projectType)" />
     }
+</div>
+<div class="sm:hidden block">
+    <p-select [options]="projectTypes" optionLabel="name" [ngModel]="selectedProjectType()" (onChange)="selectedProjectType.set($event.value)" placeholder="Selecione um tipo" class="w-full" />
 </div>
