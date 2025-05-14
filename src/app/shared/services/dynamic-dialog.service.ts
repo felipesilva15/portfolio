@@ -4,6 +4,8 @@ import { DialogSize } from '../enums/dialog-size';
 import { MessageDialogComponent } from '../components/message-dialog/message-dialog.component';
 import { DynamicDialogConfig } from '../../models/dynamic-dialog-config.data';
 
+type DialogBeakpoints = Record<string, any>;
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,19 +28,19 @@ export class DynamicDialogService {
   }
 
   open<T>(componentType: Type<any>, config: DynamicDialogConfig): Promise<T> {
+    const width: string = this.getWidthBySize(config.size);
+
     this.ref = this.dialogService.open(componentType, {
       header: config.title,
       modal: true, 
       data: config.data,
-      width: this.getWidthBySize(config.size),
+      width: width,
       closable: config.closeable,
       styleClass: config.styleClass,
       contentStyle: { 
         overflow: 'auto' 
       },
-      breakpoints: {
-        '520px': '90vw'
-      },
+      breakpoints: this.getBreakpointsByWidth(width)
     });
 
     return new Promise<T>((resolve, reject) => {
@@ -66,10 +68,20 @@ export class DynamicDialogService {
         break;
     
       default:
-        width = '460px';
+        width = '500px';
         break;
     }
 
     return width;
+  }
+
+  private getBreakpointsByWidth(width: string): DialogBeakpoints {
+    const margin: string = '5vw';
+    const breakpointName: string = `calc(${width} + ${margin})`;
+
+    const breakpoints: DialogBeakpoints = {};
+    breakpoints[breakpointName] = '95vw';
+
+    return breakpoints;
   }
 }
