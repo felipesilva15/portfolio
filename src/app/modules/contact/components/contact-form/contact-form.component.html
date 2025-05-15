@@ -1,0 +1,62 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+    <p-fluid class="grid">
+        <div class="md:col-6 col-12">
+            <label htmlFor="name">Nome<span class="text-red-500 font-bold">*</span></label>
+            <input id="name" formControlName="name" type="text" pInputText required autofocus [ngClass]="{'ng-invalid ng-dirty' : name?.invalid && name?.touched}" />
+            @if (name?.invalid && name?.touched) {
+                @if (name?.errors?.['required']) {
+                    <small class="ng-dirty ng-invalid">Este campo é obrigatório.</small>
+                } @else if (name?.errors?.['maxlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no máximo {{ name?.errors?.['maxlength'].requiredLength }} caracteres.</small>
+                } @else if (name?.errors?.['minlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no mínimo {{ name?.errors?.['minlength'].requiredLength }} caracteres.</small>
+                }
+            }
+        </div>
+        <div class="md:col-6 col-12">
+            <label htmlFor="email">E-mail<span class="text-red-500 font-bold">*</span></label>
+            <input id="email" formControlName="email" type="email" pInputText required [ngClass]="{'ng-invalid ng-dirty' : email?.invalid && email?.touched}" />
+            @if (email?.invalid && email?.touched) {
+                @if (email?.errors?.['required']) {
+                    <small class="ng-dirty ng-invalid">Este campo é obrigatório.</small>
+                } @else if (email?.errors?.['maxlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no máximo {{ email?.errors?.['maxlength'].requiredLength }} caracteres.</small>
+                } @else if (email?.errors?.['maxlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no máximo {{ email?.errors?.['maxlength'].requiredLength }} caracteres.</small>
+                } @else if (email?.errors?.['email']) {
+                    <small class="ng-dirty ng-invalid">Informe um e-mail válido.</small>
+                }
+            }
+        </div>
+        <div class="col-12">
+            <label htmlFor="subject">Assunto<span class="text-red-500 font-bold">*</span></label>
+            <input id="subject" formControlName="subject" type="text" pInputText required [ngClass]="{'ng-invalid ng-dirty' : subject?.invalid && subject?.touched}" />
+            @if (subject?.invalid && subject?.touched) {
+                @if (subject?.errors?.['required']) {
+                    <small class="ng-dirty ng-invalid">Este campo é obrigatório.</small>
+                } @else if (subject?.errors?.['maxlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no máximo {{ subject?.errors?.['maxlength'].requiredLength }} caracteres.</small>
+                } @else if (subject?.errors?.['minlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no mínimo {{ subject?.errors?.['minlength'].requiredLength }} caracteres.</small>
+                }
+            }
+        </div>
+        <div class="col-12">
+            <label htmlFor="message">Mensagem<span class="text-red-500 font-bold">*</span></label>
+            <p-editor formControlName="message" [readonly]="isSubmitting()" [style]="{ height: '16rem' }" />
+            @if (message?.invalid && message?.touched) {
+                @if (message?.errors?.['required']) {
+                    <small class="ng-dirty ng-invalid">Este campo é obrigatório.</small>
+                } @else if (message?.errors?.['minlength']) {
+                    <small class="ng-dirty ng-invalid">Este campo deve ter no mínimo {{ message?.errors?.['minlength'].requiredLength }} caracteres.</small>
+                }
+            }
+        </div>
+        <div class="col-12">
+            <div class="flex justify-content-end">
+                <p-button label="Enviar" icon="pi pi-send" type="submit" [loading]="isSubmitting()" />
+            </div>
+        </div>
+    </p-fluid>
+</form>
+<p-toast />

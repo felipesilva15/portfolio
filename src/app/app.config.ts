@@ -65,6 +65,14 @@ const MyPortfolio = definePreset(Aura, {
           }
         }
       }
+    },
+    editor: {
+      content: {
+        background: 'var(--p-inputtext-background)'
+      },
+      toolbar: {
+        background: 'var(--p-inputtext-background)'
+      }
     }
   }
 });
