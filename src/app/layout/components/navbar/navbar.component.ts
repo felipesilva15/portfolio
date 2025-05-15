@@ -20,7 +20,8 @@ export class NavbarComponent implements OnInit {
     this.navbarItems = [
       { label: 'Sobre mim', route: '/' },
       { label: 'Currículo', route: '/resume' },
-      { label: 'Portfólio', route: '/portfolio' }
+      { label: 'Portfólio', route: '/portfolio' },
+      { label: 'Contato', route: '/contact' }
     ];
   }
 }
