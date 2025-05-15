@@ -1,7 +1,7 @@
 import { ContactStatus } from "../shared/enums/contact-status";
 
 export interface Contact {
-    id: number;
+    id?: number;
     name: string;
     email: string;
     subject: string;
