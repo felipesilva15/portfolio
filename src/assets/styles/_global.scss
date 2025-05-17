@@ -13,7 +13,7 @@ body {
 }
 
 .card {
-    padding: 30px;
+    padding: 20px;
     border-radius: 20px;
     background: var(--p-neutral-900);
     border: var(--card-border);
@@ -30,4 +30,10 @@ body {
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
+}
+
+@media screen and (min-width: 576px) {
+    .card {
+        padding: 30px;
+    }
 }
