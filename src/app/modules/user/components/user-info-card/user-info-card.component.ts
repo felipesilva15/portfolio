@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal, WritableSignal } from '@angular/core';
 import { User } from '../../../../models/user.model';
 import { UserService } from '../../services/user.service';
 import { ButtonModule } from 'primeng/button';
@@ -17,6 +17,7 @@ import { SharedModule } from '../../../../shared/shared.module';
 })
 export class UserInfoCardComponent implements OnInit {
   user!: User;
+  moreInfoActive: WritableSignal<boolean> = signal<boolean>(false);
 
   constructor(private userService: UserService) { }
 
@@ -30,5 +31,9 @@ export class UserInfoCardComponent implements OnInit {
         this.user = res;
       }
     });
+  }
+
+  toogleMoreInfo(): void {
+    this.moreInfoActive.update(value => !value);
   }
 }
