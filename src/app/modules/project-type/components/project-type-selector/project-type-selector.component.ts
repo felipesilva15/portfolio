@@ -4,16 +4,24 @@ import { ProjectTypeService } from '../../services/project-type.service';
 import { ButtonModule } from 'primeng/button';
 import { SelectModule } from 'primeng/select';
 import { FormsModule } from '@angular/forms';
+import { SkeletonModule } from 'primeng/skeleton';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-project-type-selector',
   standalone: true,
-  imports: [ButtonModule, SelectModule, FormsModule],
+  imports: [
+    ButtonModule,
+    SelectModule,
+    FormsModule,
+    SkeletonModule
+  ],
   templateUrl: './project-type-selector.component.html',
   styleUrl: './project-type-selector.component.scss'
 })
 export class ProjectTypeSelectorComponent {
   projectTypes!: ProjectType[];
+  isLoading: WritableSignal<boolean> = signal<boolean>(true);
   selectedProjectType: WritableSignal<ProjectType | undefined> = signal<ProjectType | undefined>(undefined);
   @Output() selectProjectTypeEvent = new EventEmitter<ProjectType>();
 
@@ -30,7 +38,12 @@ export class ProjectTypeSelectorComponent {
   }
 
   loadData(): void {
-    this.projectTypeService.getAll().subscribe({
+    this.isLoading.set(true);
+
+    this.projectTypeService.getAll()
+    .pipe(
+      finalize(() => this.isLoading.set(false))
+    ).subscribe({
       next: (res: ProjectType[]) => {
         this.projectTypes = res;
         this.projectTypes.unshift({

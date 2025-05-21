@@ -1,8 +1,18 @@
 <div class="sm:flex hidden flex-row gap-2">
-    @for (projectType of projectTypes; track $index) {
-        <p-button [label]="projectType.name" [severity]="projectType.id == selectedProjectType()?.id ? 'primary': 'secondary'" variant="text" (onClick)="selectedProjectType.set(projectType)" />
+    @if (!isLoading()) {
+        @for (projectType of projectTypes; track $index) {
+            <p-button styleClass="fadein animation-duration-500" [label]="projectType.name" [severity]="projectType.id == selectedProjectType()?.id ? 'primary': 'secondary'" variant="text" (onClick)="selectedProjectType.set(projectType)" />
+        }
+    } @else {
+        @for (_ of [].constructor(4); track $index) {
+            <p-skeleton height="39px" width="6rem" />
+        }
     }
 </div>
 <div class="sm:hidden block">
-    <p-select [options]="projectTypes" optionLabel="name" [ngModel]="selectedProjectType()" (onChange)="selectedProjectType.set($event.value)" placeholder="Selecione um tipo" class="w-full" />
+    @if (!isLoading()) {
+        <p-select styleClass="fadein animation-duration-500" [options]="projectTypes" optionLabel="name" [ngModel]="selectedProjectType()" (onChange)="selectedProjectType.set($event.value)" placeholder="Selecione um tipo" class="w-full" />
+    } @else {
+        <p-skeleton height="39px" styleClass="w-full" />
+    }
 </div>
