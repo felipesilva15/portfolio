@@ -2,9 +2,17 @@
     <app-project-type-selector (selectProjectTypeEvent)="filterProjectType($event)" />
 </div>
 <div class="grid">
-    @for (project of filteredProjects; track $index) {
-        <div class="md:col-6 col-12">
-            <app-project-card [project]="project"></app-project-card>
-        </div>
+    @if (!isLoading()) {
+        @for (project of filteredProjects; track $index) {
+            <div class="md:col-6 col-12 fadein animation-duration-500">
+                <app-project-card [project]="project"></app-project-card>
+            </div>
+        }
+    } @else {
+        @for (_ of [].constructor(4); track $index) {
+            <div class="md:col-6 col-12">
+                <p-skeleton height="403px" styleClass="w-full" borderRadius="20px" />
+            </div>
+        }
     }
 </div>
