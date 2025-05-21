@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, computed, Input, Signal } from '@angular/core';
 import { TimelineItem } from '../../../models/timeline-item.data';
 
 @Component({
@@ -9,6 +9,7 @@ import { TimelineItem } from '../../../models/timeline-item.data';
 })
 export class TimelineComponent {
   @Input({required: true}) items: TimelineItem[] = [];
+  @Input() skeletonCount: number = 3;
 
   constructor() { }
 }
