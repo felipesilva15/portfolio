@@ -1,15 +1,24 @@
-<div>
-    <div class="mb-3">
-        <span class="text-2xl font-bold">Habilidades</span>
-    </div>
-    <div class="flex flex-row gap-2">
+
+<div class="flex flex-row justify-content-start align-items-center mb-3  fadein animation-duration-500">
+    <app-icon-box icon-class="pi-star-fill" />
+    <span class="text-2xl font-bold ml-2">Habilidades</span>
+</div>
+<div class="flex flex-row flex-wrap gap-2">
+    @if (!isLoading()) {
         @for (skill of skills; track $index) {
-            <div class="flex flex-column align-items-center gap-1">
+            <div class="flex flex-column align-items-center gap-1 fadein animation-duration-400">
                 <div class="image-box p-2 flex justify-content-center align-items-center">
                     <img class="w-full" [src]="skill.icon_url" [alt]="skill.title">
                 </div>
                 <span class="text-color-secondary text-xs">{{ skill.title }}</span>
             </div>
         }
-    </div>
+    } @else {
+        @for (_ of [].constructor(8); track $index) {
+            <div class="flex flex-column align-items-center gap-1">
+                <p-skeleton styleClass="w-4rem h-4rem" borderRadius="12px" />
+                <p-skeleton styleClass="w-3rem h-1rem" />
+            </div>
+        }
+    }
 </div>
