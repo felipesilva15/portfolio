@@ -4,6 +4,7 @@ import { TitleComponent } from './components/title/title.component';
 import { IconBoxComponent } from './components/icon-box/icon-box.component';
 import { TimelineComponent } from './components/timeline/timeline.component';
 import { SkeletonModule } from 'primeng/skeleton';
+import { ButtonModule } from 'primeng/button';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { SkeletonModule } from 'primeng/skeleton';
   ],
   imports: [
     CommonModule,
-    SkeletonModule
+    SkeletonModule,
+    ButtonModule
   ],
   exports: [
     TitleComponent,
