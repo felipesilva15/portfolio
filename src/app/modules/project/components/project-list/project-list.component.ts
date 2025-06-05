@@ -55,7 +55,7 @@ export class ProjectListComponent implements OnInit {
       }
 
       this.filteredProjects = this.projects.filter((project: Project) => {
-        return project.project_type.id == projectType.id;
+        return project.project_type?.id == projectType.id;
       });
     }
 }
