@@ -1,8 +1,11 @@
 <app-title text="Sobre mim" />
-<div>
+<div class="flex flex-column gap-3">
     @if (!isLoading()) {
         <div [innerHTML]="user.about" class="text-500 fadein animation-duration-500"></div>
     } @else {
         <p-skeleton height="10rem" styleClass="w-full" />
     }
+    <div>
+        <app-testimonial-list />
+    </div>
 </div>

@@ -4,14 +4,16 @@ import { UserService } from '../../modules/user/services/user.service';
 import { User } from '../../models/user.model';
 import { finalize } from 'rxjs';
 import { SkeletonModule } from 'primeng/skeleton';
+import { TestimonialListComponent } from "../../modules/testimonial/components/testimonial-list/testimonial-list.component";
 
 @Component({
   selector: 'app-about-me',
   standalone: true,
   imports: [
     SharedModule,
-    SkeletonModule
-  ],
+    SkeletonModule,
+    TestimonialListComponent
+],
   templateUrl: './about-me.component.html',
   styleUrl: './about-me.component.scss'
 })
