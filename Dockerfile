@@ -12,7 +12,7 @@ FROM nginx:alpine
 
 VOLUME /var/cache/nginx
 
-COPY --from=build app/dist/portfolio /usr/share/nginx/html
+COPY --from=build app/dist/portfolio/browser /usr/share/nginx/html
 COPY ./docker/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
