@@ -19,17 +19,31 @@ body {
     border: var(--card-border);
 }
 
+.subcard {
+    background: var(--p-neutral-850);
+    box-shadow: var(--shadow-1);
+    border-radius: 12px;
+}
+
 *::selection {
     color: var(--smoky-black);
     background-color: var(--p-primary-color);
 }
 
-.line-clamp-2 {
-    line-clamp: 2;
-    -webkit-line-clamp: 2;
+.line-clamp-2, .line-clamp-4 {
     -webkit-box-orient: vertical;
     display: -webkit-box;
     overflow: hidden;
+}
+
+.line-clamp-2 {
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-4 {
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
 }
 
 @media screen and (min-width: 576px) {

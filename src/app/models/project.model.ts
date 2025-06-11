@@ -13,7 +13,7 @@ export interface Project {
     status: ProjectStatus;
     github_url: string;
     url: string;
-    project_type: ProjectType;
+    project_type?: ProjectType;
     tags: Tag[];
     technologies: Technology[];
     created_at?: Date;

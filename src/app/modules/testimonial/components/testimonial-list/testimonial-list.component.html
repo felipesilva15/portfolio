@@ -1,0 +1,29 @@
+@if (!isLoading()) {
+    <h3 class="sm:text-2xl text-xl mt-0 mb-3">Testemunhos</h3>
+} @else {
+    <p-skeleton width="10rem" height="2rem" styleClass="mb-3" />
+}
+<div class="grid">
+    @if (!isLoading()) {
+        @for (testimonial of testimonials; track $index) {
+            <div class="md:col-6 col-12">
+                <div class="fadein animation-duration-500 subcard p-3 cursor-pointer h-full" (click)="showDetails()">
+                    <h4 class="mt-0 mb-2">
+                        {{ testimonial.name }}
+                    </h4>
+                    <div class="line-clamp-4 text-500 overflow-hidden">
+                        <p class="my-0">
+                            {{ testimonial.testimonial }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    } @else {
+        @for (_ of [].constructor(2); track $index) {
+            <div class="md:col-6 col-12">
+                <p-skeleton height="145px" styleClass="w-full" borderRadius="12px" />
+            </div>
+        }
+    }
+</div>

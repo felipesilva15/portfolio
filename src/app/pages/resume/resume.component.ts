@@ -3,6 +3,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { EducationComponent } from '../../modules/education/components/education/education.component';
 import { ExperienceComponent } from "../../modules/experience/components/experience/experience.component";
 import { SkillComponent } from "../../modules/skill/components/skill/skill.component";
+import { CertificationComponent } from "../../modules/certification/certification/certification.component";
 
 @Component({
   selector: 'app-resume',
@@ -11,7 +12,8 @@ import { SkillComponent } from "../../modules/skill/components/skill/skill.compo
     SharedModule,
     EducationComponent,
     ExperienceComponent,
-    SkillComponent
+    SkillComponent,
+    CertificationComponent
 ],
   templateUrl: './resume.component.html',
   styleUrl: './resume.component.scss'

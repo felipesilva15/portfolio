@@ -1,5 +1,5 @@
 .avatar-box {
-    border-radius: 20px;
+    border-radius: 20%;
     background: linear-gradient(to bottom right, hsl(240, 1%, 25%) 3%, hsl(0, 0%, 19%) 97%);
 }
 
@@ -7,11 +7,6 @@
     top: 4rem;
 }
 
-@media screen and (min-width: 576px) {
-    .avatar-box {
-        border-radius: 30px;
-    }
-}
 
 @media screen and (max-width: 1200px) {
     .card {

@@ -3,52 +3,89 @@
         <p-button class="xl:hidden absolute top-0 right-0" variant="outlined" [style]="{'border-radius': '0 15px'}" (onClick)="toogleExpandMoreInfo()">
             <i class="pi pi-angle-down transition-transform transition-duration-300" [ngClass]="{ '-rotate-180': expandMoreInfo() }"></i>
         </p-button>
-        <div class="avatar-box sm:w-9rem sm:h-9rem w-6rem h-6rem">
-            <img [src]="user.avatar_url" alt="avatar" class="w-full">
-        </div>
+        @if (!isLoading()) {
+            <div class="avatar-box sm:w-9rem sm:h-9rem w-6rem h-6rem fadein animation-duration-500">
+                <img [src]="user.avatar_url" alt="avatar" class="w-full">
+            </div>
+        } @else {
+            <p-skeleton styleClass="sm:w-9rem sm:h-9rem w-6rem h-6rem" borderRadius="20%" />
+        }
         <div class="flex flex-column xl:align-items-center justify-content-center sm:gap-3 gap-2">
-            <h1 class="m-0 sm:text-3xl text-2xl">{{ user.name }}</h1>
-            <p-tag [value]="user.job_title" severity="secondary" [classList]="'xl:mx-auto mr-auto text-xs'" />
+            @if (!isLoading()) {
+                <h1 class="m-0 sm:text-3xl text-2xl fadein animation-duration-500">{{ user.name }}</h1>
+                <p-tag [value]="user.job_title" severity="secondary" [classList]="'xl:mx-auto mr-auto text-xs fadein animation-duration-500'" />
+            } @else {
+                <p-skeleton height="37px" styleClass="w-10rem" />
+                <p-skeleton height="24px" styleClass="w-10rem" />
+            }
         </div>
     </div>
     <div class="overflow-hidden more-info transition-all transition-ease-in-out transition-duration-500" [ngClass]="{ 'max-h-0 opacity-0': !showMoreInfo(), 'opacity-100': showMoreInfo() }">
         <p-divider class="my-5" />
         <div class="grid">
-            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
-                <app-icon-box icon-class="pi-envelope" />
-                <div class="flex flex-column">
-                    <p class="text-xs text-400 font-bold m-0 mb-1">E-MAIL</p>
-                    <a class="no-underline hover:underline text text-color text-overflow-ellipsis" href="mailto:{{ user.email }}" target="_blank" rel="noopener noreferrer">{{ user.email }}</a>
-                </div>
+            <div class="xl:col-12 md:col-6 col-12">
+                @if (!isLoading()) {
+                    <div class="fadein animation-duration-500 flex flex-row gap-3">
+                        <app-icon-box icon-class="pi-envelope" />
+                        <div class="flex flex-column">
+                            <p class="text-xs text-400 font-bold m-0 mb-1">E-MAIL</p>
+                            <a class="no-underline hover:underline text text-color text-overflow-ellipsis" href="mailto:{{ user.email }}" target="_blank" rel="noopener noreferrer">{{ user.email }}</a>
+                        </div>
+                    </div>
+                } @else {
+                    <p-skeleton height="3rem" class="w-full" />
+                }
             </div>
-            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
-                <app-icon-box icon-class="pi-mobile" />
-                <div class="flex flex-column">
-                    <p class="text-xs text-400 font-bold m-0 mb-1">TELEFONE</p>
-                    <a class="no-underline hover:underline text text-color" href="https://api.whatsapp.com/send?phone=55{{ user.phone_number }}" target="_blank" rel="noopener noreferrer">{{ user.phone_number | phone }}</a>
-                </div>
+            <div class="xl:col-12 md:col-6 col-12">
+                @if (!isLoading()) {
+                    <div class="fadein animation-duration-500 flex flex-row gap-3">
+                        <app-icon-box icon-class="pi-mobile" />
+                        <div class="flex flex-column">
+                            <p class="text-xs text-400 font-bold m-0 mb-1">TELEFONE</p>
+                            <a class="no-underline hover:underline text text-color" href="https://api.whatsapp.com/send?phone=55{{ user.phone_number }}" target="_blank" rel="noopener noreferrer">{{ user.phone_number | phone }}</a>
+                        </div>
+                    </div>
+                } @else {
+                    <p-skeleton height="3rem" class="w-full" />
+                }
             </div>
-            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
-                <app-icon-box icon-class="pi-calendar" />
-                <div class="flex flex-column">
-                    <p class="text-xs text-400 font-bold m-0 mb-1">DT. ANIVERSÁRIO</p>
-                    <span>{{ user.birth_date | date:'longDate' }}</span>
-                </div>
+            <div class="xl:col-12 md:col-6 col-12">
+                @if (!isLoading()) {
+                    <div class="fadein animation-duration-500 flex flex-row gap-3">
+                        <app-icon-box icon-class="pi-calendar" />
+                        <div class="flex flex-column">
+                            <p class="text-xs text-400 font-bold m-0 mb-1">DT. ANIVERSÁRIO</p>
+                            <span>{{ user.birth_date | date:'longDate' }}</span>
+                        </div>
+                    </div>
+                } @else {
+                    <p-skeleton height="3rem" class="w-full" />
+                }
             </div>
-            <div class="xl:col-12 md:col-6 col-12 flex flex-row gap-3">
-                <app-icon-box icon-class="pi-map-marker" />
-                <div class="flex flex-column">
-                    <p class="text-xs text-400 font-bold m-0 mb-1">LOCALIDADE</p>
-                    <span>{{ user.locality }}</span>
-                </div>
+            <div class="xl:col-12 md:col-6 col-12">
+                @if (!isLoading()) {
+                    <div class="fadein animation-duration-500 flex flex-row gap-3">
+                        <app-icon-box icon-class="pi-map-marker" />
+                        <div class="flex flex-column">
+                            <p class="text-xs text-400 font-bold m-0 mb-1">LOCALIDADE</p>
+                            <span>{{ user.locality }}</span>
+                        </div>
+                    </div>
+                } @else {
+                    <p-skeleton height="3rem" class="w-full" />
+                }
             </div>
         </div>
         <p-divider class="my-5" />
         <div class="flex flex-row gap-1 justify-content-center w-full mt-3">
-            @for (link of user.links; track $index) {
-                <a [href]="link.url" target="_blank" rel="noopener noreferrer">
-                    <p-button icon="pi {{ link.icon_name }}" [rounded]="true" [text]="true" severity="secondary" />
-                </a>
+            @if (!isLoading()) {
+                @for (link of user.links; track $index) {
+                    <a [href]="link.url" pButton [rounded]="true" [text]="true" class="no-underline fadein animation-duration-500" severity="secondary" icon="pi {{ link.icon_name }}" target="_blank" rel="noopener noreferrer"></a>
+                }
+            } @else {
+                @for (_ of [].constructor(2); track $index) {
+                    <p-skeleton shape="circle" size="40px" />
+                }
             }
         </div>
     </div>

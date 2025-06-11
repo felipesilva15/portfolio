@@ -2,7 +2,7 @@
     <ng-template #header>
         <div class="relative">
             <div class="project-type-box absolute top-0 right-0 p-1 bg-primary">
-                <span class="font-bold">{{ project.project_type.name }}</span>
+                <span class="font-bold">{{ project.project_type?.name }}</span>
             </div>
             <img [alt]="project.title" [src]="project.thumbnail_url" class="w-full project-image" loading="lazy" />
         </div>

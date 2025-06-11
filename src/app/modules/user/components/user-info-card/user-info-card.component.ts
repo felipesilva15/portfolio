@@ -7,6 +7,8 @@ import { TagModule } from 'primeng/tag';
 import { PipesModule } from '../../../../shared/pipes/pipes.module';
 import { CommonModule, DatePipe } from '@angular/common';
 import { SharedModule } from '../../../../shared/shared.module';
+import { finalize } from 'rxjs';
+import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
   selector: 'app-user-info-card',
@@ -18,7 +20,8 @@ import { SharedModule } from '../../../../shared/shared.module';
     PipesModule, 
     DatePipe, 
     SharedModule,
-    CommonModule
+    CommonModule,
+    SkeletonModule
   ],
   templateUrl: './user-info-card.component.html',
   styleUrl: './user-info-card.component.scss'
@@ -30,6 +33,7 @@ export class UserInfoCardComponent implements OnInit {
   windowWidth: WritableSignal<number> = signal<number>(window.innerWidth)
   isLargeScreen: Signal<boolean> = computed(() => this.windowWidth() >= 1200);
   showMoreInfo: Signal<boolean> = computed(() => (!this.isLargeScreen() && this.expandMoreInfo()) || this.isLargeScreen());
+  isLoading: WritableSignal<boolean> = signal<boolean>(true);
 
   constructor(private userService: UserService) {
     window.addEventListener('resize', () => {
@@ -42,7 +46,13 @@ export class UserInfoCardComponent implements OnInit {
   }
 
   loadData(): void {
-    this.userService.getById(1).subscribe({
+    this.isLoading.set(true);
+
+    this.userService.getById(1)
+    .pipe(
+      finalize(() => this.isLoading.set(false))
+    )
+    .subscribe({
       next: (res: User) => {
         this.user = res;
       }

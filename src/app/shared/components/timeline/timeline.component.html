@@ -11,6 +11,12 @@
                         {{ item.description }}
                     </p>
                 }
+                @if (item.linkUrl) {
+                    <a [href]="item.linkUrl" target="_blank" rel="noopener noreferrer" pButton class="no-underline mt-2" severity="secondary" [rounded]="true" >
+                        {{ item.linkLabel ? item.linkLabel : 'Link' }}
+                        <i class="pi pi-external-link"></i>
+                    </a>
+                }
             </li>
         }
     </ul>
