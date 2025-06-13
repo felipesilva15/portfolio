@@ -7,14 +7,12 @@
     @if (!isLoading()) {
         @for (testimonial of testimonials; track $index) {
             <div class="md:col-6 col-12">
-                <div class="fadein animation-duration-500 subcard p-3 cursor-pointer h-full" (click)="showDetails()">
+                <div class="fadein animation-duration-500 subcard p-3 cursor-pointer h-full testimonial-card transition-duration-300" (click)="showDetails(testimonial)">
                     <h4 class="mt-0 mb-2">
                         {{ testimonial.name }}
                     </h4>
                     <div class="line-clamp-4 text-500 overflow-hidden">
-                        <p class="my-0">
-                            {{ testimonial.testimonial }}
-                        </p>
+                        <p class="my-0" [innerHTML]="testimonial.testimonial"></p>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,10 @@
+<div class="flex flex-row justify-content-between align-items-center mb-3 mt-1">
+    <div class="flex flex-row align-items-center gap-2 text-500">
+        <i class="pi pi-calendar" style="font-size: 14px;"></i>
+        <span>{{ testimonial.date | date:'longDate' }}</span>
+    </div>
+    <a [href]="testimonial.original_url" target="_blank" rel="noopener noreferrer">
+        <p-button label="Original" icon="pi pi-external-link" severity="secondary" />
+    </a>
+</div>
+<p class="my-0" [innerHTML]="testimonial.testimonial"></p>
