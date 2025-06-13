@@ -24,10 +24,19 @@ export class ExperienceComponent implements OnInit {
 
   loadData(): void {
     this.experienceService.getAll().subscribe({
-      next: (res: Experience[]) => {
-        this.experiences = res;
+      next: (response: Experience[]) => {
+        this.experiences = response;
+        this.sortExperiences();
         this.makeTimelineList();
       }
+    });
+  }
+
+  sortExperiences(): void {
+    this.experiences.sort((a, b) => {
+      const dateA = new Date(a.end_date || '');
+      const dateB = new Date(b.end_date || '');
+      return dateB.getTime() - dateA.getTime();
     });
   }
 

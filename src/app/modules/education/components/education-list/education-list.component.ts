@@ -28,8 +28,17 @@ export class EducationListComponent implements OnInit {
     this.educationService.getAll().subscribe({
       next: (response: Education[]) => {
         this.educations = response;
+        this.sortEducations();
         this.makeTimelineList();
       }
+    });
+  }
+
+  sortEducations(): void {
+    this.educations.sort((a, b) => {
+      const dateA = new Date(a.end_date || '');
+      const dateB = new Date(b.end_date || '');
+      return dateB.getTime() - dateA.getTime();
     });
   }
 

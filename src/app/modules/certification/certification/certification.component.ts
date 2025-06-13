@@ -30,8 +30,17 @@ export class CertificationComponent {
     this.certificationService.getAll().subscribe({
       next: (response: Certification[]) => {
         this.certifications = response;
+        this.sortCertifications();
         this.makeTimelineList();
       }
+    });
+  }
+
+  sortCertifications(): void {
+    this.certifications.sort((a, b) => {
+      const dateA = new Date(a.issued_date);
+      const dateB = new Date(b.issued_date);
+      return dateB.getTime() - dateA.getTime();
     });
   }
 
