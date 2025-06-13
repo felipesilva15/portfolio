@@ -1,4 +1,4 @@
-import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, LOCALE_ID, provideZoneChangeDetection } from '@angular/core';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient } from '@angular/common/http';
 import { provideRouter } from '@angular/router';
@@ -96,6 +96,6 @@ export const appConfig: ApplicationConfig = {
         }
       }
     }),
+    { provide: LOCALE_ID, useValue: 'pt' }
   ],
-  
 };
