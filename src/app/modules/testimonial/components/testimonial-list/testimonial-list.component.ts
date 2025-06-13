@@ -37,6 +37,7 @@ export class TestimonialListComponent {
       next: (response: Testimonial[]) => {
         this.testimonials = response;
         this.treatTestimonialText();
+        this.sortTestimonials();
       },
       error: (error: ApiError) => {
         console.error(error);
@@ -50,6 +51,14 @@ export class TestimonialListComponent {
     })
 
     console.log(this.testimonials)
+  }
+
+  sortTestimonials(): void {
+    this.testimonials.sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB.getTime() - dateA.getTime();
+    });
   }
 
   showDetails(testimonial: Testimonial): void {
