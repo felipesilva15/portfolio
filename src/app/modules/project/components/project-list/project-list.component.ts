@@ -40,6 +40,7 @@ export class ProjectListComponent implements OnInit {
     ).subscribe({
       next: (res: Project[]) => {
         this.projects = res;
+        this.sortProjects();
         this.filteredProjects = this.projects;
       },
       error: (error: ApiError) => {
@@ -49,13 +50,21 @@ export class ProjectListComponent implements OnInit {
   }
 
   filterProjectType(projectType?: ProjectType): void {
-      if (!projectType?.id) {
-        this.filteredProjects = this.projects;
-        return;
-      }
-
-      this.filteredProjects = this.projects.filter((project: Project) => {
-        return project.project_type?.id == projectType.id;
-      });
+    if (!projectType?.id) {
+      this.filteredProjects = this.projects;
+      return;
     }
+
+    this.filteredProjects = this.projects.filter((project: Project) => {
+      return project.project_type?.id == projectType.id;
+    });
+  }
+
+  sortProjects(): void {
+    this.projects.sort((a, b) => {
+      const dateA = new Date(a.completion_date || '');
+      const dateB = new Date(b.completion_date || '');
+      return dateB.getTime() - dateA.getTime();
+    });
+  }
 }
