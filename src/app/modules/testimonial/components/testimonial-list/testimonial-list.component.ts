@@ -49,8 +49,6 @@ export class TestimonialListComponent {
     this.testimonials.map((testimonial: Testimonial) => {
       testimonial.testimonial = testimonial.testimonial.replace(/\r\n|\n|\r/g, '<br>');
     })
-
-    console.log(this.testimonials)
   }
 
   sortTestimonials(): void {
