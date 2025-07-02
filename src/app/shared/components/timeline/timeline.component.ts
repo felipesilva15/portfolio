@@ -8,7 +8,7 @@ import { TimelineItem } from '../../../models/timeline-item.data';
   styleUrl: './timeline.component.scss'
 })
 export class TimelineComponent {
-  @Input({required: true}) items: TimelineItem[] = [];
+  @Input({required: true}) items: TimelineItem[] | undefined = undefined;
   @Input() skeletonCount: number = 3;
 
   constructor() { }
