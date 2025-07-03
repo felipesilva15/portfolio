@@ -1,10 +1,10 @@
+import { CertificationService } from './../../services/certification.service';
 import { Component } from '@angular/core';
-import { SharedModule } from '../../../shared/shared.module';
+import { SharedModule } from '../../../../shared/shared.module';
 import { SkeletonModule } from 'primeng/skeleton';
-import { Certification } from '../../../models/certification.model';
-import { TimelineItem } from '../../../models/timeline-item.data';
-import { CertificationService } from '../services/certification.service';
-import { DateUtilsService } from '../../../shared/utils/date-utils.service';
+import { Certification } from '../../../../models/certification.model';
+import { TimelineItem } from '../../../../models/timeline-item.data';
+import { DateUtilsService } from '../../../../shared/utils/date-utils.service';
 
 @Component({
   selector: 'app-certification',
