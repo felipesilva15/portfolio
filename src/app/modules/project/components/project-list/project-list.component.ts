@@ -42,9 +42,6 @@ export class ProjectListComponent implements OnInit {
         this.projects = res;
         this.sortProjects();
         this.filteredProjects = this.projects;
-      },
-      error: (error: ApiError) => {
-        console.error(error);
       }
     });
   }
