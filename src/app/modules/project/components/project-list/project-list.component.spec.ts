@@ -64,7 +64,7 @@ describe('ProjectListComponent', () => {
     component = fixture.componentInstance;
   });
 
-  it('should create', () => {
+  it('should be created', () => {
     expect(component).toBeTruthy();
   });
 
@@ -166,7 +166,7 @@ describe('ProjectListComponent', () => {
         id: 1,
         title: 'Portfólio',
         description: 'Um projeto de portfólio',
-        completion_date: new Date('2025-01-01T03:00:00.000-03:00'),
+        completion_date: undefined,
         thumbnail_url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
         status: ProjectStatus.Completed,
         github_url: 'https://github.com/felipesilva15',
@@ -186,7 +186,7 @@ describe('ProjectListComponent', () => {
         id: 2,
         title: 'Portfólio',
         description: 'Um projeto de portfólio',
-        completion_date: new Date('2025-02-01T03:00:00.000-03:00'),
+        completion_date: undefined,
         thumbnail_url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg',
         status: ProjectStatus.Completed,
         github_url: 'https://github.com/felipesilva15',

@@ -56,6 +56,24 @@ describe('DynamicDialogService', () => {
     );
   });
 
+  it('should call the "open" method of the DialogService when opening a message dialog with default title', () => {
+    mockPrimengDialogService.open.and.returnValue(mockDialogRef);
+
+    const message: string = 'Ocorreu um problema!';
+    
+    service.message(message);
+
+    expect(mockPrimengDialogService.open).toHaveBeenCalledWith(
+      MessageDialogComponent,
+      jasmine.objectContaining({
+        data: { 
+          message: message
+        },
+        header: 'Atenção'
+      })
+    );
+  });
+
   it('must call the open method of the PrimeNG DialogService with the correct parameters', () => {
     const config: DynamicDialogConfig = {
       title: 'Dummy',
