@@ -36,8 +36,8 @@ export class EducationListComponent implements OnInit {
 
   sortEducations(): void {
     this.educations.sort((a, b) => {
-      const dateA = new Date(a.end_date || '');
-      const dateB = new Date(b.end_date || '');
+      const dateA = a.end_date ? new Date(a.end_date) : new Date();
+      const dateB = b.end_date ? new Date(b.end_date) : new Date();
       return dateB.getTime() - dateA.getTime();
     });
   }

@@ -34,8 +34,8 @@ export class ExperienceComponent implements OnInit {
 
   sortExperiences(): void {
     this.experiences.sort((a, b) => {
-      const dateA = new Date(a.end_date || '');
-      const dateB = new Date(b.end_date || '');
+      const dateA = a.end_date ? new Date(a.end_date) : new Date();
+      const dateB = b.end_date ? new Date(b.end_date) : new Date();
       return dateB.getTime() - dateA.getTime();
     });
   }
@@ -47,7 +47,7 @@ export class ExperienceComponent implements OnInit {
       this.timelineList.push({
         title: experience.position,
         subtitle: this.dateUtilsService.formatDatePeriod(experience.start_date, experience.end_date),
-        description: `${experience.company_name} - ${experience.locality} \n\n ${experience.description}`
+        description: `${experience.company_name} - ${experience.locality} \r\r ${experience.description}`
       });
     });
   }

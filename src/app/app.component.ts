@@ -15,5 +15,4 @@ import { LayoutModule } from './layout/layout.module';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'portfolio';
 }

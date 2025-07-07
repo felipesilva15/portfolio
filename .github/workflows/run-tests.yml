@@ -1,0 +1,24 @@
+name: Run Angular tests
+
+on:
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  angular-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Config Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '22'
+
+    - name: install dependencies
+      run: npm install
+
+    - name: Execute tests (Unit)
+      run: npm test
