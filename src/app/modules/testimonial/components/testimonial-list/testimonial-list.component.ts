@@ -38,9 +38,6 @@ export class TestimonialListComponent {
         this.testimonials = response;
         this.treatTestimonialText();
         this.sortTestimonials();
-      },
-      error: (error: ApiError) => {
-        console.error(error);
       }
     });
   }
